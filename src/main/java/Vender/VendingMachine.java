@@ -9,9 +9,9 @@ public class VendingMachine {
     
 
     private HashMap<String, ArrayList<Product>> products;
-    private HashMap<Integer, ArrayList<Schmeckles>> schmeckleVault;
+    private HashMap<Schmeckles, ArrayList<Schmeckles> > schmeckleVault;
 
-    public VendingMachine(HashMap<String, ArrayList<Product>> products, HashMap<Integer, ArrayList<Schmeckles>> schmeckleVault) {
+    public VendingMachine(HashMap<String, ArrayList<Product>> products, HashMap<Schmeckles, ArrayList<Schmeckles>> schmeckleVault) {
         this.products = products;
         this.schmeckleVault = schmeckleVault;
     }
@@ -25,13 +25,18 @@ public class VendingMachine {
         this.products = products;
     }
 
-    public HashMap<Integer, ArrayList<Schmeckles>> getSchmeckleVault() {
+    public HashMap<Schmeckles, ArrayList<Schmeckles>> getSchmeckleVault() {
         return schmeckleVault;
     }
 
 
+
 //set credit function
-    public void setSchmeckleVault(HashMap<Integer, ArrayList<Schmeckles>> schmeckleVault) {
-        this.schmeckleVault = schmeckleVault;
+    public void addToSchmeckleVault(Schmeckles schmeckles) {
+        ArrayList<Schmeckles> temp = schmeckleVault.get(schmeckles);
+
+        temp.add(schmeckles);
+
+        this.schmeckleVault.put(schmeckles, temp);
     }
 }

@@ -30,4 +30,8 @@ private final int value;
 
         return goodSchmeckles;
     }
+
+    public int getValue() {
+        return value;
+    }
 }

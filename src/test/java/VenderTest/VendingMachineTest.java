@@ -15,6 +15,8 @@ import schmeckles.SchmeckleType;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
+
 public class VendingMachineTest {
 
         ProductRack productRack;
@@ -59,16 +61,34 @@ public class VendingMachineTest {
         schmeckle2 = new Schmeckle(SchmeckleType.FIDY);
         schmeckle3 = new Schmeckle(SchmeckleType.G);
         schmeckles = new ArrayList<>();
-        schmeckles.add(schmeckle);
-        schmeckles.add(schmeckle1);
-        schmeckles.add(schmeckle2);
-        schmeckles.add(schmeckle3);
+//        schmeckles.add(schmeckle);
+//        schmeckles.add(schmeckle1);
+//        schmeckles.add(schmeckle2);
+//        schmeckles.add(schmeckle3);
 
         schmeckleReturn = new SchmeckleReturn(schmeckles);
 
         credit = new ArrayList<>();
 
         vendingMachine = new VendingMachine(racks, credit , schmeckleReturn);
+    }
 
+    @Test
+    public void canCredit() {
+        vendingMachine.credit(schmeckle2);
+        assertEquals(1, vendingMachine.getCreditedSchmeckles().size());
+    }
+
+    @Test
+    public void checkValidity() {
+        Schmeckle schmeckle = new Schmeckle(SchmeckleType.ONE);
+        assertEquals(false, vendingMachine.checkCreditValidity(schmeckle));
+    }
+
+    @Test
+    public void checkScmeckleReturns() {
+        Schmeckle schmeckle = new Schmeckle(SchmeckleType.ONE);
+        vendingMachine.credit(schmeckle);
+        assertEquals(1, vendingMachine.getSchmeckleReturn().getSchmeckles().size());
     }
 }

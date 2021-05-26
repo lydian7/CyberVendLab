@@ -14,14 +14,38 @@ public class VendingMachine {
     private ArrayList<ProductRack> productRacks;
     private ArrayList<Schmeckle> creditedSchmeckles;
     private SchmeckleReturn schmeckleReturn;
+    private ArrayList<Integer> schmeckleValues;
+    Schmeckle schmeckle;
 
     public VendingMachine(ArrayList<ProductRack> productRacks, ArrayList<Schmeckle> creditedSchmeckles, SchmeckleReturn schmeckleReturn) {
         this.productRacks = productRacks;
         this.creditedSchmeckles = creditedSchmeckles;
         this.schmeckleReturn = schmeckleReturn;
+        this.schmeckle = new Schmeckle(SchmeckleType.G);
+        this.schmeckleValues = schmeckle.getSchmeckle().getAll();
     }
 
 
+    public void credit(Schmeckle schmeckle) {
+        if(checkCreditValidity(schmeckle)){
+            this.creditedSchmeckles.add(schmeckle);
+        } else {
+            this.schmeckleReturn.addSchmeckle(schmeckle);
+        }
+    }
+
+    public ArrayList<Schmeckle> getCreditedSchmeckles() {
+        return creditedSchmeckles;
+    }
 
 
+    public boolean checkCreditValidity(Schmeckle schmeckle) {
+        return schmeckleValues.contains(schmeckle.getSchmeckle().getValue());
+    }
+
+    public SchmeckleReturn getSchmeckleReturn() {
+        return schmeckleReturn;
+    }
+
+    public void
 }

@@ -39,4 +39,12 @@ public class VendingMachine {
 
         this.schmeckleVault.put(schmeckles, temp);
     }
+
+    public void removeFromSchmeckleVault(Schmeckles schmeckles){
+        ArrayList<Schmeckles> tempRemove = schmeckleVault.get(schmeckles);
+
+        tempRemove.remove(schmeckles);
+
+        this.schmeckleVault.put(schmeckles, tempRemove);
+    }
 }

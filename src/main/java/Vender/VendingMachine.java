@@ -16,6 +16,7 @@ public class VendingMachine {
     private SchmeckleReturn schmeckleReturn;
     private ArrayList<Integer> schmeckleValues;
     private int count;
+    private int totalCredit;
     Schmeckle schmeckle;
 
     public VendingMachine(ArrayList<ProductRack> productRacks, ArrayList<Schmeckle> creditedSchmeckles, SchmeckleReturn schmeckleReturn) {
@@ -23,6 +24,8 @@ public class VendingMachine {
         this.creditedSchmeckles = creditedSchmeckles;
         this.schmeckleReturn = schmeckleReturn;
         this.schmeckle = new Schmeckle(SchmeckleType.G);
+        this.count = 0;
+        this.totalCredit = 0;
         this.schmeckleValues = schmeckle.getSchmeckle().getAll();
     }
 
@@ -31,6 +34,7 @@ public class VendingMachine {
         if(checkCreditValidity(schmeckle)){
             this.creditedSchmeckles.add(schmeckle);
             this.count++;
+            this.totalCredit += schmeckle.getSchmeckle().getValue();
         } else {
             this.schmeckleReturn.addSchmeckle(schmeckle);
         }
@@ -53,12 +57,18 @@ public class VendingMachine {
         return schmeckleReturn;
     }
 
-    public void buyProduct(Code code, Schmeckle schmeckle){
+    public Product buyProduct(Code code, int totalCredit){
+
+        Product product = null;
         for(ProductRack rack : productRacks){
-            if(code == rack.getCode() && schmeckle.getSchmeckle().getValue() >= rack.getPrice()){
-                this.credit(schmeckle);
+            if(code == rack.getCode() && totalCredit >= rack.getPrice()){
+                product = rack.getProduct(code);
             }
         }
+    return product;
+    }
 
+    public int getTotalCredit() {
+        return totalCredit;
     }
 }

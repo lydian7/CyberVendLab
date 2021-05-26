@@ -57,7 +57,7 @@ public class VendingMachineTest {
         productRack2 = new ProductRack(Code.A3, neuraMass.getPrice(), neuraMassList);
 
         schmeckle = new Schmeckle(SchmeckleType.MONKEY);
-        schmeckle1 = new Schmeckle(SchmeckleType.TON);
+        schmeckle1 = new Schmeckle(SchmeckleType.TWOTON);
         schmeckle2 = new Schmeckle(SchmeckleType.FIDY);
         schmeckle3 = new Schmeckle(SchmeckleType.G);
         schmeckles = new ArrayList<>();
@@ -90,5 +90,11 @@ public class VendingMachineTest {
         Schmeckle schmeckle = new Schmeckle(SchmeckleType.ONE);
         vendingMachine.credit(schmeckle);
         assertEquals(1, vendingMachine.getSchmeckleReturn().getSchmeckles().size());
+    }
+
+    @Test
+    public void canBuyProduct() {
+        vendingMachine.credit(schmeckle1);
+        assertEquals(cyberEyez, vendingMachine.buyProduct(Code.A1, vendingMachine.getTotalCredit()));
     }
 }

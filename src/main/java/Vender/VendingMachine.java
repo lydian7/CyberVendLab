@@ -12,14 +12,16 @@ public class VendingMachine {
     
 
     private ArrayList<ProductRack> productRacks;
-    private ArrayList<Schmeckle> creditedScmheckles;
+    private ArrayList<Schmeckle> creditedSchmeckles;
     private SchmeckleReturn schmeckleReturn;
 
-    public VendingMachine(ArrayList<ProductRack> productRacks, ArrayList<Schmeckle> creditedScmheckles, SchmeckleReturn schmeckleReturn) {
+    public VendingMachine(ArrayList<ProductRack> productRacks, ArrayList<Schmeckle> creditedSchmeckles, SchmeckleReturn schmeckleReturn) {
         this.productRacks = productRacks;
-        this.creditedScmheckles = creditedScmheckles;
+        this.creditedSchmeckles = creditedSchmeckles;
         this.schmeckleReturn = schmeckleReturn;
     }
+
+
 
 
 }

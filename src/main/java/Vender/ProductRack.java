@@ -30,10 +30,10 @@ public class ProductRack {
 
     public Product getProduct(Code code){
         Product productToRemove = null;
-        for(Product product : products){
-            if(code.getProductName() == product.getName()){
-                int index = products.indexOf(product);
-                productToRemove = products.remove(index);
+//        for(Product product : products) this didnt work with for each
+        for(int i = 0; i < products.size(); i++){
+            if(code.getProductName() == products.get(i).getName()){
+                productToRemove = products.remove(i);
             }
         }
         return productToRemove;

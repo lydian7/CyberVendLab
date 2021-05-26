@@ -9,6 +9,8 @@ import products.Product;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
+
 public class ProductRackTest {
     
     ProductRack productRack;
@@ -24,6 +26,17 @@ public class ProductRackTest {
     }
 
     @Test
-    public void canGet() {
+    public void canGetCode() {
+        assertEquals(Code.A1, productRack.getCode());
+    }
+
+    @Test
+    public void canAddProduct() {
+        assertEquals(1, products.size());
+    }
+
+    @Test
+    public void canGetProduct() {
+        assertEquals(product, productRack.getProduct(Code.A1));
     }
 }

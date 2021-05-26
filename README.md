@@ -2,7 +2,7 @@
 
 ## Scope
 
-In this exercise you will build the brains of a vending machine.  It will accept money, make change, maintain
+You will build the brains of a vending machine.  It will accept money, make change, maintain
 inventory, and dispense products.  All the things that you might expect a vending machine to accomplish.
 
 The point of this is to practice the concepts you have learned so far and can be used to practice TDD.
@@ -32,4 +32,4 @@ only accept exact change.
 
 ## Oucome
 
-MVP almost achieved with some interesting bugs in the transaction and vend fucntion. Code cold have beneffited form deeper planning on UI and vending machine logic. All in all, good.
+MVP almost achieved with some interesting bugs in the transaction and vend fucntion. Code could have benefited from deeper planning on UI and vending machine logic. All in all, great effort in 5 hours of paird programming.

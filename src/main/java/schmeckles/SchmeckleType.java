@@ -1,8 +1,8 @@
-package Vender;
+package schmeckles;
 
 import java.util.ArrayList;
 
-public enum Schmeckles {
+public enum SchmeckleType {
     TEN(10),
     TWENTY(20),
     FIDY(50),
@@ -15,16 +15,16 @@ private final int value;
 
 
 
-    Schmeckles(int value) {
+    SchmeckleType(int value) {
         this.value = value;
     }
 
     public ArrayList<Integer> getAll(){
         ArrayList<Integer> goodSchmeckles = new ArrayList<>();
 
-        Schmeckles[] schmeckles = Schmeckles.values();
+        SchmeckleType[] schmeckles = SchmeckleType.values();
 
-        for(Schmeckles schmeckle : schmeckles){
+        for(SchmeckleType schmeckle : schmeckles){
             goodSchmeckles.add(schmeckle.value);
         }
 

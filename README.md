@@ -30,6 +30,6 @@ in the coin return.
 only accept exact change.
 
 
-## Oucome
+## Outcome
 
 MVP almost achieved with some interesting bugs in the transaction and vend fucntion. Code could have benefited from deeper planning on UI and vending machine logic. All in all, great effort in 5 hours of paird programming.
